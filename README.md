@@ -44,7 +44,8 @@ If installing locally, you'll need to perform the local install after each subse
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-bluetooth-classic` and add `RNBluetoothClassic.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNBluetoothClassic.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+4. In XCode, in the project navigator, edit `Info.plist` and add the `NSBluetoothAlwaysUsageDescription` and `NSBluetoothPeripheralUsageDescription` keys.
+5. Run your project (`Cmd+R`)<
 
 #### Android
 
@@ -59,6 +60,13 @@ If installing locally, you'll need to perform the local install after each subse
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
       implementation project(':react-native-bluetooth-classic')
+  	```
+4. Insert the following lines to `AndroidManifest.xml`:
+  	```
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
   	```
 
 #### Windows
